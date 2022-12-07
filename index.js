@@ -36,20 +36,27 @@ client.on('message', msg => {
             break;
     
         case "lista":
-            client.sendMessage(msg.from, "1.- primer cuento\n 2.- segundo cuento");
+            client.sendMessage(msg.from, "Escribe el numero del cuento que quieres escuchar\n1.- Cuento de navidad\n 2.- El niño que queria ser pajaro\n3.- La astronauta");
             break;
         case "1":
             //mandar el primer cuento en formato opus
-            const media = MessageMedia.fromFilePath('./media/voicenote.opus');
-            client.sendMessage(msg.from, "1.- primer cuento");
+            const media = MessageMedia.fromFilePath('./media/navidad.opus');
+            client.sendMessage(msg.from, "1.- Cuento de navidad");
             client.sendMessage(msg.from, media);
             break;
         case "2":
             //mandar el segundo cuento en formato opus
-            const media2 = MessageMedia.fromFilePath('./media/voicenote2.opus');
-            client.sendMessage(msg.from, "2.- segundo cuento");
+            const media2 = MessageMedia.fromFilePath('./media/ninopajaro.opus');
+            client.sendMessage(msg.from, "2.- El niño que queria ser pajaro");
             client.sendMessage(msg.from, media2);
+            break;
+        case "3":
+            //mandar el tercer cuento en formato opus
+            const media3 = MessageMedia.fromFilePath('./media/astronauta.opus');
+            client.sendMessage(msg.from, "3.- La astronauta");
+            client.sendMessage(msg.from, media3);
         default:
+            client.sendMessage(msg.from, "No entiendo el mensaje, escribe: hola o lista para conocer el listado de cuentos disponibles");
             break;
     }
 });
